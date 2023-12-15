@@ -6,8 +6,12 @@ const  categorySchema = new mongoose.Schema({
         type:String, 
         sparse:true
         
-    }
-})
+    },
+    description:{
+        type:String,
+    },
+
+},{timestamps:true})
 
 const Category= mongoose.model('category',categorySchema)
 module.exports=Category

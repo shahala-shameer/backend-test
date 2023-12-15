@@ -12,7 +12,7 @@ router.get('/test', (req, res) => {
   });
    router.post('/signup',signup)
   
-  router.get('/userList',userList)
+  router.get('/userlist',userList)
 
 router.delete('/delete/:id',userDelete)
 

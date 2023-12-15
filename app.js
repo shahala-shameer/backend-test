@@ -2,12 +2,14 @@ const express = require('express')
 const mongoose = require('mongoose');
 const userRouter = require('./routers/users.route')
 const categoryRouter = require('./routers/category.route.js');
+const productRouter = require('./routers/product.route')
 require('dotenv').config()
 const app = express()
 const port = 3000
 app.use(express.json())
 app.use("/api/users" ,userRouter)
 app.use('/api/category',categoryRouter)
+app.use('/api/product',productRouter)
 
 
 app.get('/', (req, res) => {

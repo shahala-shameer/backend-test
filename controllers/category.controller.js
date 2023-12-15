@@ -1,7 +1,7 @@
 const Category = require('../models/category.model.js')
 
 const test = (req, res) => {
-    res.send('Hello World!')
+    res.send('API WORKING')
   };
 
   const categories =async (req,res)=>{
@@ -11,7 +11,7 @@ const test = (req, res) => {
     const newCategory= new Category(data)
 
     await newCategory.save()
-    res.status(200).json(newCategory)
+    res.status(201).json(newCategory)
     
  
     
@@ -22,13 +22,14 @@ const test = (req, res) => {
     res.json(data)
   }
   
+
   const categoryDelete =async(req,res)=>{
     const categoryId=req.params.id;
    try{
   await Category.findByIdAndDelete(categoryId)
   res.status(200).send("category deleted successfully")
    }catch(error){
-    res.send(error.message)
+    res.status(400).send(error.message)
   
    }
   }
@@ -37,7 +38,7 @@ const test = (req, res) => {
     const categoryId=req.params.id;
     const data =req.body;
     try{
-    const update= await category.findByIdAndUpdate(categoryId,data,{new:true})
+    const update= await Category.findByIdAndUpdate(categoryId,data,{new:true})
     res.json(update);
   }catch(error){
     console.log('you are not authorised',error.message)

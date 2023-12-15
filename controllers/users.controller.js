@@ -3,7 +3,7 @@ const User = require('../models/users.model.js')
 
 const test = (req, res) => {
     res.send('Hello World!')
-  };
+  }; 
 
   const signup =async (req,res)=>{
 
@@ -34,7 +34,7 @@ const userDelete =async(req,res)=>{
 await User.findByIdAndDelete(userId)
 res.status(200).send("user deleted successfully")
  }catch(error){
-  res.send(error.message)
+  res.status(500).send(error.message)
 
  }
 }
